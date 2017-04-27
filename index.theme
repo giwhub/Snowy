@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Snowy
+Comment=A white gtk theme based on Flat-Plat
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Snowy
+MetacityTheme=Snowy

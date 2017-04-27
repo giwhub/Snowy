@@ -1,0 +1,112 @@
+/************
+ * Terminix *
+ ************/
+overlay > revealer {
+  &.left > scrolledwindow.frame,
+  &.right > scrolledwindow.frame {
+    border-style: none;
+    box-shadow: $shadow_4;
+  }
+
+  &.left > scrolledwindow.frame { margin-right: 32px; }
+
+  &.right > scrolledwindow.frame { margin-left: 32px; }
+}
+
+.terminix-session-sidebar { background-image: image($lighter_bg_color); }
+
+button.image-button.session-new-button { min-width: $medium_size - 4px; }
+
+
+/***********
+ * Eclipse *
+ ***********/
+window.background > box.vertical > scrolledwindow > widget toolbar {
+  padding: 2px;
+
+  separator,
+  button { margin: 2px; }
+
+  button { border-radius: 2px; }
+}
+
+
+/***********
+ * Firefox *
+ ***********/
+window.background:not(.csd) {
+  // for the bookmark toolbar's separators
+  > widget > separator { color: rgba(0, 0, 0, 0.2); }
+
+  // remove ugly border around the menus
+  > * > menu { border: none; }
+
+  // use 16px assets for hard-coded sizing
+  > window.background > menu > menuitem > check,
+  > widget > checkbutton > check {
+    & {
+      border-radius: 2px;
+      -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-unchecked-symbolic.svg")),
+                              -gtk-recolor(url("assets/scalable/small-checkbox-unchecked-symbolic.symbolic.png")));
+    }
+
+    &:checked {
+      -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-checked-symbolic.svg")),
+                              -gtk-recolor(url("assets/scalable/small-checkbox-checked-symbolic.symbolic.png")));
+    }
+
+    &:indeterminate {
+      -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-mixed-symbolic.svg")),
+                              -gtk-recolor(url("assets/scalable/small-checkbox-mixed-symbolic.symbolic.png")));
+    }
+  }
+
+  > window.background > menu > menuitem > radio,
+  > widget > radiobutton > radio {
+    & {
+      -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.svg")),
+                              -gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.symbolic.png")));
+    }
+
+    &:checked {
+      border-image: none;
+      -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-checked-symbolic.svg")),
+                              -gtk-recolor(url("assets/scalable/small-radio-checked-symbolic.symbolic.png")));
+    }
+
+    &:indeterminate {
+      -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-mixed-symbolic.svg")),
+                              -gtk-recolor(url("assets/scalable/small-radio-mixed-symbolic.symbolic.png")));
+    }
+  }
+}
+
+// Firefox now uses this for selected items
+text:selected { @extend %selected_items; }
+
+// for backwards compatibility
+window.background:not(.csd) {
+  > widget > menubar {
+    color: $secondary_titlebar_fg_color;
+
+    &:hover { color: $titlebar_fg_color; }
+
+    &:disabled { color: $disabled_secondary_titlebar_fg_color; }
+  }
+
+  > window.background > menu > separator { color: $border_color; }
+
+  > widget > frame { color: rgba(0, 0, 0, 0.2); }
+
+  > widget > checkbutton > check,
+  > widget > radiobutton > radio {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+
+/***********
+ * Synapse *
+ ***********/
+box.vertical > widget > widget:selected { background-color: $primary_color; }
