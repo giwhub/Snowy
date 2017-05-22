@@ -2307,7 +2307,7 @@ decoration {
 entry selection, modelbutton.flat:selected,
 .menuitem.button.flat:selected, popover.background.menu button:checked,
 popover.background button.model:checked, row:selected, calendar:selected, text:selected {
-  background-color: #42A5F5; }
+  background-color: #1E90FF; }
   row:selected label, label:selected, .view selection, .view:selected, flowbox flowboxchild:selected, spinbutton:not(.vertical) selection,
   entry selection, modelbutton.flat:selected,
   .menuitem.button.flat:selected, popover.background.menu button:checked,
